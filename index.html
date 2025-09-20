@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <title> 3072 </title>
+      <link rel = "stylesheet" href = "style.css" />
+   </head>
+
+   <body>
+      
+      <div class = "container" >
+         <p id = "placeholder"> LOADING... </p>
+         <!-- set canvas bg to black to dodge webGL transparancy bs -->
+         <canvas style="display:none; background: black;" id = "canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+      </div>
+
+      <script type='text/javascript'>
+
+         const can = document.getElementById("canvas");
+         const placeholder = document.getElementById("placeholder");
+
+         var Module = {
+
+            canvas: (() => { return can; })(),
+            setStatus: (text) => {
+               if ( !text ) {
+                  placeholder.style.display = "none";
+                  canvas.style.display = "block";
+               }
+            }
+         }
+
+      </script>
+
+      <script async type="text/javascript" src="run.js"></script>
+
+   </body>
+</html>
